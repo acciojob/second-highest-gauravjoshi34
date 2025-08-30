@@ -8,25 +8,46 @@
 
 <body>	
 	<script>
+		// Function to find the second highest element
 		function secondHighest(arr) {
-			//Write your code here
-			
+			// If the array is empty or has only 1 element, return -Infinity
+			if (arr.length < 2) {
+				return -Infinity;
+			}
+
+			// Convert string input to numbers
+			arr = arr.map(Number);
+
+			// Sort the array in descending order (largest to smallest)
+			let y = arr.sort((a, b) => b - a);
+
+			// Check if all elements are the same
+			if (y[0] === y[1]) {
+				return -Infinity;  // If the largest and second largest are the same, return -Infinity
+			}
+
+			// Return the second largest element
+			return y[1];
 		}
 
+		// Main function to handle user input
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
+			
+			// Get the elements from the user
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = prompt("Enter element " + (i + 1));
 			}
-			alert(secondHighest(arr));
+
+			// Call the function and alert the result
+			var result = secondHighest(arr);
+			alert("The second highest element is: " + result);
 		}
+
+		// Run the main function to start the program
 		Main();
 	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
-
 </body>
 
 </html>
